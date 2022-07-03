@@ -224,8 +224,7 @@ public class Client implements CallBackClientService, ProtocolImpl {
 			enterRoomBtn.setEnabled(true);
 			outRoomBtn.setEnabled(false);
 		} else if (protocol.equals("FailMakeRoom")) {
-			JOptionPane.showMessageDialog(null, "같은 이름의 방이 존재합니다 !", "[알림]",
-					JOptionPane.ERROR_MESSAGE, icon);
+			JOptionPane.showMessageDialog(null, "같은 이름의 방이 존재합니다 !", "[알림]", JOptionPane.ERROR_MESSAGE, icon);
 		} else if (protocol.equals("UserOut")) {
 			userIdList.remove(from);
 			userList.setListData(userIdList);
@@ -251,7 +250,12 @@ public class Client implements CallBackClientService, ProtocolImpl {
 
 	@Override
 	public void secretMessage() {
-		JOptionPane.showMessageDialog(null, from + "님의 메세지\n\"" + message + "\"", "[비밀메세지]", JOptionPane.PLAIN_MESSAGE);
+		if (id.equals(from)) {
+			JOptionPane.showMessageDialog(null, "본인에게는 비밀메세지를 보낼수 없습니다.", "[알림]", JOptionPane.ERROR_MESSAGE, icon);
+		} else {
+			JOptionPane.showMessageDialog(null, from + "님의 메세지\n\"" + message + "\"", "[비밀메세지]",
+					JOptionPane.PLAIN_MESSAGE);
+		}
 	}
 
 	@Override
