@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="project_refactoring.Server"/>
+    <fullyQualifiedTypeName name="project_refactoring.MyRoom"/>
+    <fullyQualifiedTypeName name="lombok.Data"/>
+    <fullyQualifiedTypeName name="project_refactoring.ConnectedClient.MyRoom"/>
+    <fullyQualifiedTypeName name="project_refactoring.ConnectedClient"/>
+    <fullyQualifiedTypeName name="java.lang.Thread"/>
+    <fullyQualifiedTypeName name="java.lang.Runnable"/>
+    <fullyQualifiedTypeName name="project_origin.ProtocolImpl"/>
+    <fullyQualifiedTypeName name="project_refactoring.gui.ServerFrame"/>
+    <fullyQualifiedTypeName name="project_refactoring.interfaces.ProtocolImpl"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+D:\boot\project-kha_talk\.metadata\.plugins\org.eclipse.jdt.core
+2272578608.index
+2151454433.index
+1865797976.index
+3396987762.index
