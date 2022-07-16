@@ -180,12 +180,9 @@ public class Client implements CallBackClientService, ProtocolImpl {
 					} catch (IOException e) {
 						try {
 							JOptionPane.showMessageDialog(null, "서버에 오류가 발생되어 프로그램이 종료됩니다 !", "알림", JOptionPane.ERROR_MESSAGE, icon);
-							writer("Error/" + id + "/" + myRoomName);
-							
 							reader.close();
 							writer.close();
 							socket.close();
-							
 							System.exit(0);
 						} catch (IOException e1) {
 							e1.printStackTrace();
@@ -213,7 +210,6 @@ public class Client implements CallBackClientService, ProtocolImpl {
 				reader.close();
 				writer.close();
 				socket.close();
-				System.exit(0);
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}

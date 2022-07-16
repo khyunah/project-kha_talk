@@ -221,11 +221,10 @@ public class Server {
 				for (int i = 0; i < madeRooms.size(); i++) {
 					MyRoom myRoom = madeRooms.elementAt(i);
 					if(myRoom.roomName.equals(this.myRoomName)) {
-						connectedUsers.remove(this);
 						myRoom.removeRoom(this);
 					}
 				}
-				
+				connectedUsers.remove(this);
 				broadCast("UserOut/" + id);
 				try {
 					reader.close();
@@ -266,7 +265,7 @@ public class Server {
 				enterRoom();
 			} else if (protocol.equals("Error")) {
 				String room = tokenizer.nextToken();
-				outRoom();
+				myRoom.roomBroadCast("Chatting/퇴장/" + id + "님 퇴장");
 			}
 		}
 
@@ -282,11 +281,9 @@ public class Server {
 			} catch (IOException e) {
 				e.printStackTrace();
 				try {
-					connectedUsers.remove(this);
 					reader.close();
 					writer.close();
 					socket.close();
-					
 					
 				} catch (IOException e1) {
 					e1.printStackTrace();
