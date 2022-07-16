@@ -116,8 +116,6 @@ public class Client implements CallBackClientService, ProtocolImpl {
 				enterRoomBtn.setEnabled(true);
 				secretMsgBtn.setEnabled(true);
 				sendMessageBtn.setEnabled(true);
-				writeMessageBox.setEnabled(true);
-				inputSecretMsg.setEnabled(true);
 
 			} catch (IOException e) {
 				e.printStackTrace();

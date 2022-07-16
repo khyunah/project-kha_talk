@@ -79,7 +79,6 @@ public class Client implements CallBackClientService, ProtocolImpl {
 		sendMessageBtn = clientFrame.getMessagePanel().getSendMessageBtn();
 		connectBtn = clientFrame.getIndexPanel().getConnectBtn();
 		writeMessageBox = clientFrame.getMessagePanel().getWriteMessageBox();
-		inputSecretMsg = clientFrame.getWaitingRoomPanel().getInputSecretMsg();
 	}
 
 	/**
@@ -116,8 +115,6 @@ public class Client implements CallBackClientService, ProtocolImpl {
 				enterRoomBtn.setEnabled(true);
 				secretMsgBtn.setEnabled(true);
 				sendMessageBtn.setEnabled(true);
-				writeMessageBox.setEnabled(true);
-				inputSecretMsg.setEnabled(true);
 
 			} catch (IOException e) {
 				e.printStackTrace();

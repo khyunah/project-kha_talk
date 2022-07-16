@@ -111,7 +111,6 @@ public class WaitingRoomPanel extends JPanel implements ActionListener {
 		add(roomBtnPanel);
 
 		inputSecretMsg.setBounds(30, 20, 240, 23);
-		inputSecretMsg.setEnabled(false);
 		secretMsgBtn.setBounds(30, 55, 240, 20);
 		secretMsgBtn.setBackground(Color.WHITE);
 		secretMsgBtn.setEnabled(false);

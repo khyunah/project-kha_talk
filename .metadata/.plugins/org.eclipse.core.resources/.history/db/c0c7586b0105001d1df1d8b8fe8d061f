@@ -88,7 +88,6 @@ public class MessagePanel extends JPanel {
 		bottomPanel.setBounds(43, 380, 294, 35);
 		bottomPanel.setBackground(Color.WHITE);
 		bottomPanel.setBorder(new LineBorder(Color.BLACK, 2));
-		writeMessageBox.setEnabled(false);
 		bottomPanel.add(writeMessageBox);
 		bottomPanel.add(sendMessageBtn);
 		add(bottomPanel);

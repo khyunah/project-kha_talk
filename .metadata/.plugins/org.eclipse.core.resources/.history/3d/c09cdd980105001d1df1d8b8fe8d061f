@@ -15,7 +15,6 @@ import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 import project_refactoring.frame.ClientFrame;
 import project_refactoring.interfaces.CallBackClientService;
@@ -36,8 +35,6 @@ public class Client implements CallBackClientService, ProtocolImpl {
 	private JButton secretMsgBtn;
 	private JButton sendMessageBtn;
 	private JButton connectBtn;
-	private JTextField writeMessageBox;
-	private JTextField inputSecretMsg;
 
 	// 소켓 장치
 	private Socket socket;
@@ -78,8 +75,6 @@ public class Client implements CallBackClientService, ProtocolImpl {
 		secretMsgBtn = clientFrame.getWaitingRoomPanel().getSecretMsgBtn();
 		sendMessageBtn = clientFrame.getMessagePanel().getSendMessageBtn();
 		connectBtn = clientFrame.getIndexPanel().getConnectBtn();
-		writeMessageBox = clientFrame.getMessagePanel().getWriteMessageBox();
-		inputSecretMsg = clientFrame.getWaitingRoomPanel().getInputSecretMsg();
 	}
 
 	/**
@@ -116,8 +111,6 @@ public class Client implements CallBackClientService, ProtocolImpl {
 				enterRoomBtn.setEnabled(true);
 				secretMsgBtn.setEnabled(true);
 				sendMessageBtn.setEnabled(true);
-				writeMessageBox.setEnabled(true);
-				inputSecretMsg.setEnabled(true);
 
 			} catch (IOException e) {
 				e.printStackTrace();
