@@ -16,6 +16,7 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
+import project_refactoring.frame.ClientFrame;
 import project_refactoring.interfaces.CallBackClientService;
 import project_refactoring.interfaces.ProtocolImpl;
 
@@ -324,7 +325,11 @@ public class Client implements CallBackClientService, ProtocolImpl {
 	@Override
 	public void clickSendSecretMessageBtn(String msg) {
 		String user = (String) clientFrame.getWaitingRoomPanel().getUserList().getSelectedValue();
-		writer("SecretMessage/" + user + "/" + msg);
+		if(user == null) {
+			JOptionPane.showMessageDialog(null, "비밀 메세지를 보낼 상대를 선택해 주세요.", "[알림]", JOptionPane.ERROR_MESSAGE, icon);
+		} else {
+			writer("SecretMessage/" + user + "/" + msg);
+		}
 	}
 
 	@Override
