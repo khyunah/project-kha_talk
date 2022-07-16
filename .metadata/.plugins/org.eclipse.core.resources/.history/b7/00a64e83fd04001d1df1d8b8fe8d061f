@@ -93,6 +93,7 @@ public class Server {
 						// 서버 중지
 						serverViewAppendWriter("[에러] 접속 에러 ! !\n");
 						e.printStackTrace();
+						
 					}
 				}
 			}
@@ -164,13 +165,6 @@ public class Server {
 
 				sendInfomation();
 			} catch (IOException e) {
-				try {
-					reader.close();
-					writer.close();
-					socket.close();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
 				JOptionPane.showMessageDialog(null, "서버 입출력 장치 에러!", "알림", JOptionPane.ERROR_MESSAGE, icon);
 				serverViewAppendWriter("[에러] 서버 입출력 장치 에러 ! !\n");
 				e.printStackTrace();
@@ -199,13 +193,7 @@ public class Server {
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(null, "접속 에러 !", "알림", JOptionPane.ERROR_MESSAGE, icon);
 				serverViewAppendWriter("[에러] 접속 에러 ! !\n");
-				try {
-					reader.close();
-					writer.close();
-					socket.close();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
+				e.printStackTrace();
 			}
 		}
 
@@ -217,14 +205,9 @@ public class Server {
 					checkProtocol(str);
 				}
 			} catch (IOException e) {
-				try {
-					reader.close();
-					writer.close();
-					socket.close();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-				serverViewAppendWriter("[퇴장] " + id +" 님\n");
+				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, "유저 접속 끊김 !", "알림", JOptionPane.ERROR_MESSAGE, icon);
+				serverViewAppendWriter("[에러] 유저 " + id +" 접속 끊김 ! !\n");
 				for (int i = 0; i < madeRooms.size(); i++) {
 					MyRoom myRoom = madeRooms.elementAt(i);
 					if(myRoom.roomName.equals(this.myRoomName)) {
@@ -276,14 +259,7 @@ public class Server {
 				writer.write(str + "\n");
 				writer.flush();
 			} catch (IOException e) {
-				try {
-					reader.close();
-					writer.close();
-					socket.close();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-				
+				e.printStackTrace();
 				JOptionPane.showMessageDialog(null, "서버 출력 에러 !", "알림", JOptionPane.ERROR_MESSAGE, icon);
 			}
 		}

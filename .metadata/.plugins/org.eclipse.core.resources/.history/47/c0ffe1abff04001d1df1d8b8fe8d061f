@@ -164,13 +164,6 @@ public class Server {
 
 				sendInfomation();
 			} catch (IOException e) {
-				try {
-					reader.close();
-					writer.close();
-					socket.close();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
 				JOptionPane.showMessageDialog(null, "서버 입출력 장치 에러!", "알림", JOptionPane.ERROR_MESSAGE, icon);
 				serverViewAppendWriter("[에러] 서버 입출력 장치 에러 ! !\n");
 				e.printStackTrace();

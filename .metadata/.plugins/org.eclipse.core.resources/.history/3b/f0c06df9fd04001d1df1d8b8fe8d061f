@@ -93,6 +93,7 @@ public class Server {
 						// 서버 중지
 						serverViewAppendWriter("[에러] 접속 에러 ! !\n");
 						e.printStackTrace();
+						
 					}
 				}
 			}
@@ -164,13 +165,6 @@ public class Server {
 
 				sendInfomation();
 			} catch (IOException e) {
-				try {
-					reader.close();
-					writer.close();
-					socket.close();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
 				JOptionPane.showMessageDialog(null, "서버 입출력 장치 에러!", "알림", JOptionPane.ERROR_MESSAGE, icon);
 				serverViewAppendWriter("[에러] 서버 입출력 장치 에러 ! !\n");
 				e.printStackTrace();
@@ -200,8 +194,6 @@ public class Server {
 				JOptionPane.showMessageDialog(null, "접속 에러 !", "알림", JOptionPane.ERROR_MESSAGE, icon);
 				serverViewAppendWriter("[에러] 접속 에러 ! !\n");
 				try {
-					reader.close();
-					writer.close();
 					socket.close();
 				} catch (IOException e1) {
 					e1.printStackTrace();
@@ -218,12 +210,11 @@ public class Server {
 				}
 			} catch (IOException e) {
 				try {
-					reader.close();
-					writer.close();
 					socket.close();
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
+				e.printStackTrace();
 				serverViewAppendWriter("[퇴장] " + id +" 님\n");
 				for (int i = 0; i < madeRooms.size(); i++) {
 					MyRoom myRoom = madeRooms.elementAt(i);
@@ -276,14 +267,7 @@ public class Server {
 				writer.write(str + "\n");
 				writer.flush();
 			} catch (IOException e) {
-				try {
-					reader.close();
-					writer.close();
-					socket.close();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-				
+				e.printStackTrace();
 				JOptionPane.showMessageDialog(null, "서버 출력 에러 !", "알림", JOptionPane.ERROR_MESSAGE, icon);
 			}
 		}
