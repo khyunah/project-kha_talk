@@ -88,7 +88,6 @@ public class Client implements CallBackClientService, ProtocolImpl {
 		this.port = port;
 		this.id = id;
 		boolean isConnected = false;
-		
 		for (int i = 0; i < userIdList.size(); i++) {
 			if(id.equals(userIdList.get(i))) {
 				isConnected = true;
@@ -116,6 +115,7 @@ public class Client implements CallBackClientService, ProtocolImpl {
 				JOptionPane.showMessageDialog(null, "접속 에러 !", "알림", JOptionPane.ERROR_MESSAGE, icon);
 			}
 		}
+	
 	}
 
 	/**

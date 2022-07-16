@@ -87,34 +87,24 @@ public class Client implements CallBackClientService, ProtocolImpl {
 		this.ip = ip;
 		this.port = port;
 		this.id = id;
-		boolean isConnected = false;
-		
-		for (int i = 0; i < userIdList.size(); i++) {
-			if(id.equals(userIdList.get(i))) {
-				isConnected = true;
-				return;
-			}
-		}
-		
-		if(!isConnected) {
-			try {
-				connectNetwork();
-				connectIO();
+		try {
+			connectNetwork();
+			connectIO();
 
-				writer.write(id.trim() + "\n");
-				writer.flush();
-				clientFrame.setTitle("[ KHA Talk_" + id + "님 ]");
-				clientFrame.getTabPane().setSelectedIndex(1);
-				clientFrame.getIndexPanel().getConnectBtn().setEnabled(false);
-				connectBtn.setEnabled(false);
-				makeRoomBtn.setEnabled(true);
-				enterRoomBtn.setEnabled(true);
-				secretMsgBtn.setEnabled(true);
-				sendMessageBtn.setEnabled(true);
+			writer.write(id.trim() + "\n");
+			writer.flush();
+			clientFrame.setTitle("[ KHA Talk_" + id + "님 ]");
+			clientFrame.getTabPane().setSelectedIndex(1);
+			clientFrame.getIndexPanel().getConnectBtn().setEnabled(false);
+			connectBtn.setEnabled(false);
+			clientFrame.getIndexPanel().remove(connectBtn);
+			makeRoomBtn.setEnabled(true);
+			enterRoomBtn.setEnabled(true);
+			secretMsgBtn.setEnabled(true);
+			sendMessageBtn.setEnabled(true);
 
-			} catch (IOException e) {
-				JOptionPane.showMessageDialog(null, "접속 에러 !", "알림", JOptionPane.ERROR_MESSAGE, icon);
-			}
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "접속 에러 !", "알림", JOptionPane.ERROR_MESSAGE, icon);
 		}
 	}
 
