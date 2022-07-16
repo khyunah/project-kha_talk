@@ -297,7 +297,6 @@ public class Client implements CallBackClientService, ProtocolImpl {
 		makeRoomBtn.setEnabled(false);
 		enterRoomBtn.setEnabled(false);
 		outRoomBtn.setEnabled(true);
-		clientFrame.getTabPane().setSelectedIndex(2);
 	}
 
 	@Override
