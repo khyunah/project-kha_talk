@@ -3,14 +3,12 @@ package project_refactoring;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Calendar;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
@@ -18,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
+import project_refactoring.frame.ServerFrame;
 import project_refactoring.interfaces.ProtocolImpl;
 
 public class Server {
@@ -84,15 +83,16 @@ public class Server {
 
 						// 소켓 장치
 						socket = serverSocket.accept();
-						serverViewAppendWriter("[알림] 사용자 접속 대기\n");
 
 						// 연결을 대기 하다가 유저가 들어오면 유저 생성, 소켓으로 유저 구분 가능.
 						ConnectedUser user = new ConnectedUser(socket);
 						user.start();
+						
+						serverViewAppendWriter("[알림] 사용자 접속 대기\n");
 					} catch (IOException e) {
 						// 서버 중지
 						serverViewAppendWriter("[에러] 접속 에러 ! !\n");
-
+						
 					}
 				}
 			}
@@ -110,6 +110,7 @@ public class Server {
 			user.writer(msg);
 		}
 	}
+	
 
 	/**
 	 * 서버로 들어오는 요청은 모두 저장되는 파일 Writer.<br>
@@ -202,10 +203,10 @@ public class Server {
 				}
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(null, "유저 접속 끊김 !", "알림", JOptionPane.ERROR_MESSAGE, icon);
-				serverViewAppendWriter("[에러] 유저 " + id + " 접속 끊김 ! !\n");
+				serverViewAppendWriter("[에러] 유저 " + id +" 접속 끊김 ! !\n");
 				for (int i = 0; i < madeRooms.size(); i++) {
 					MyRoom myRoom = madeRooms.elementAt(i);
-					if (myRoom.roomName.equals(this.myRoomName)) {
+					if(myRoom.roomName.equals(this.myRoomName)) {
 						myRoom.removeRoom(this);
 					}
 				}
