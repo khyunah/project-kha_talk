@@ -28,3 +28,6 @@
   - 방 나가기
 + 채팅방에 메세지 보내기
 + 비밀 메세지
+#
+link: [프로젝트 원본 깃 바로가기](https://github.com/khyunah/project-kha_talk/tree/main/kha_talk/src/project_origin, "바로가기") <br/>
+link: [프로젝트 리팩토링 깃 바로가기](https://github.com/khyunah/project-kha_talk/tree/main/kha_talk/src/project_refactoring, "바로가기")
